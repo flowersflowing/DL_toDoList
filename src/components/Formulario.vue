@@ -9,7 +9,7 @@
     <div v-if="tarea">
       <h3>Cosas por hacer:</h3>
       <ul>
-        <li v-for="(tarea, index) in tareas" :key="index">{{index}} - {{tarea}}</li>
+        <li v-for="(tarea, index) in tareas" :key="index">{{index+1}} - {{tarea}}</li>
       </ul>
     </div>
     <div v-else>
@@ -28,8 +28,8 @@ export default {
     }
   },
   methods: {
-    agregarTarea(tarea) {
-      this.tareas.push(tarea);
+    agregarTarea() {
+      this.tareas.push(this.tarea);
     }
   }
 }
@@ -47,6 +47,6 @@ ul {
   padding: 0;
 }
 li {
-  margin: 0 10px;
+  margin: 0 60px;
 }
 </style>
