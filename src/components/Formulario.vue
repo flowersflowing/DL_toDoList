@@ -1,10 +1,12 @@
 <template>
   <div class="hello">
     <h2>Lista de tareas</h2>
-    <h4>Tarea</h4>
-    <input type="text" v-model="tarea">
-    <span><button @click="agregarTarea(tarea, index)">Crear</button></span>
-    <div v-if="tarea > 0">
+    <form @submit.prevent="agregarTarea">
+      <label for="tarea">Tarea: </label>
+      <input type="text" v-model="tarea">
+      <span><button type="submit">Crear</button></span>
+    </form>
+    <div v-if="tarea">
       <h3>Cosas por hacer:</h3>
       <ul>
         <li v-for="(tarea, index) in tareas" :key="index">{{index}} - {{tarea}}</li>
@@ -21,6 +23,7 @@ export default {
   name: 'Formulario',
   data () {
     return {
+        tarea: '',
         tareas: [],
     }
   },
